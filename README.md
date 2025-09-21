@@ -97,16 +97,21 @@ For most teams, start with Pinecone for simplicity and managed ops; choose Weavi
 
 - **CLI entrypoint**: `main.py`
   - Loads `.env`, runs an interactive loop, calls `Workflow.run(query)`, prints results and recommendations.
+
+  
 - **Workflow**: `src/workflow.py`
   - Builds a `langgraph` state machine:
     - `extract_tools`: Searches/scrapes and asks the LLM to extract tool names.
     - `research`: Finds official sites; scrapes with Firecrawl; analyzes each using structured LLM output.
     - `recommendation`: Generates a brief, actionable summary.
   - Uses `ChatGroq(model="openai/gpt-oss-20b", temperature=0.4)`.
+
+
 - **Firecrawl client**: `src/firecrawl_client.py`
   - `search_companies(query, num_results)`: Firecrawl Search API
   - `scrape_company_pages(url)`: Firecrawl Scrape API (markdown)
   - Requires `FIRECRAWL_API_KEY`.
+
 - **Models**: `src/models.py`
   - `CompanyAnalysis`, `CompanyInfo`, `ResearchState` (Pydantic).
 - **Prompts**: `src/prompts.py`
