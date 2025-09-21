@@ -133,5 +133,4 @@ For most teams, start with Pinecone for simplicity and managed ops; choose Weavi
 - **Rate limits/network**: Retry after a minute; Firecrawl/LLM providers may throttle.
 
 ## Notes
-- No license file is included; add one if you plan to share/distribute.
 - You can swap models or providers by adjusting `ChatGroq` in `src/workflow.py`.
